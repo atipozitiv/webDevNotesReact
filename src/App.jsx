@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import noTasks from "./noTasks.jsx"
 import onOpen from './onOpen.jsx'
 import drawTasks from './drawTasks.jsx'
@@ -40,6 +40,18 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
     </>
+  )
+
+  const [todo, setTodo] = useEffect([]);
+  return (
+    <button onClick={() => {setTodo([...todo, "1"])}}>+</button>
+  ){todo.map((todo, index) => {
+      return (
+        <>
+          <h1 key={index}>{todo}</h1>
+        </>
+      )
+    })}
   )
 }
 
