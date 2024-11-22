@@ -1,35 +1,55 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export default function App() {
+  const [taskId, setTaskId] = useState(() => {
+    const storeLength = localStorage.getItem('tasks');
+    return storeLength ? JSON.parse(storeLength).length : 0;
+  });
+  const [title, setTitle] = useState("");
+  const [about, setAbout] = useState("");
+  const [tasks, setTasks] = useState(() => {
+    const storedTasks = localStorage.getItem('tasks');
+    let helpMap = new Map();
+    let id = 0; 
+    try {
+      JSON.parse(storedTasks).forEach(element => {
+        helpMap.set(id, element);
+        id += 1;
+      })
+    } catch {}
+    return storedTasks ?  helpMap : new Map();
+  });
+
+  console.log(tasks);
 
   return (
     <>
       <div className="task-form">
         <div className="input-fields">
-            <input id="title-input" placeholder="Title..."></input>
-            <input id="about-input" placeholder="About..."></input>
+          <input className="title-input" placeholder="Title..." onChange={e => setTitle(e.target.value)}></input>
+          <input className="about-input" placeholder="About..." onChange={e => setAbout(e.target.value)}></input>
         </div>
-        <button onClick={() => mainButton()}>+</button>
+        <button onClick={mainButton}>+</button>
       </div>
     </>
   )
-}
 
-function mainButton() {
-  const titleInput = document.getElementById("title-input");
-  let titleInputValue = titleInput.value;
-  const aboutInput = document.getElementById("about-input");
-  let aboutInputValue = aboutInput.value;
-
-  if(!((titleInputValue.length == 0) && (aboutInputValue.length == 0))) {
-      localStorage.setItem(titleInputValue, aboutInputValue);
-      titleInput.value = "";
-      aboutInput.value = "";
-      drawTasks(titleInputValue, aboutInputValue);
+  function mainButton() {
+    if ((title.length != 0) && (about.length != 0)) {
+      const task = {
+        id: taskId,
+        title: title,
+        about: about,
+      };
+      setTasks(tasks.set(task.id, task));
+      const storageTasks = []
+      tasks.forEach(element => {
+        storageTasks.push(element)
+      });
+      localStorage.setItem('tasks', JSON.stringify(storageTasks));
+      setTaskId(taskId + 1);
+    }
   }
-  noTasks();
 }
-
-export default App
