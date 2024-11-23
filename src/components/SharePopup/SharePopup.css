@@ -1,0 +1,43 @@
+body .popup-background {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+body .popup-background .share-popup {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 80px;
+  margin-left: 5%;
+  background-color: #1B1A17;
+  position: absolute;
+  bottom: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+body .popup-background .share-popup button {
+  height: 50px;
+  width: 50px;
+  background-color: #23221F;
+  border-style: none;
+  border-radius: 50%;
+}
+body .popup-background .share-popup .to-copy-button {
+  background-image: url("../../assets/images/toCopy.png");
+}
+body .popup-background .share-popup .vk-button {
+  background-image: url("../../assets/images/vk.png");
+}
+body .popup-background .share-popup .telegram-button {
+  background-image: url("../../assets/images/telegram.png");
+}
+body .popup-background .share-popup .watsapp-button {
+  background-image: url("../../assets/images/whatsapp.png");
+}
+body .popup-background .share-popup .facebook-button {
+  background-image: url("../../assets/images/facebook.png");
+}

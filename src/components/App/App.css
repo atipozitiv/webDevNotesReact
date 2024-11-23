@@ -1,11 +1,11 @@
-.task-form {
+body .task-form {
   margin-top: 40px;
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-bottom: 10%;
 }
-.input-fields {
+body .task-form .input-fields {
   width: 100%;
   display: flex;
   flex-direction: column;

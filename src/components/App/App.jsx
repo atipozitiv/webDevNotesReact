@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
+import TaskList from '../TaskList/TaskList';
 
 
 export default function App() {
@@ -22,17 +23,16 @@ export default function App() {
     return storedTasks ?  helpMap : new Map();
   });
 
-  console.log(tasks);
-
   return (
     <>
       <div className="task-form">
         <div className="input-fields">
-          <input className="title-input" placeholder="Title..." onChange={e => setTitle(e.target.value)}></input>
-          <input className="about-input" placeholder="About..." onChange={e => setAbout(e.target.value)}></input>
+          <input placeholder="Title..." value={title} onChange={e => setTitle(e.target.value)}></input>
+          <input placeholder="About..." value={about} onChange={e => setAbout(e.target.value)}></input>
         </div>
         <button onClick={mainButton}>+</button>
       </div>
+      <TaskList taskId={taskId} tasks={tasks} setTaskId={setTaskId}></TaskList>
     </>
   )
 
@@ -50,6 +50,8 @@ export default function App() {
       });
       localStorage.setItem('tasks', JSON.stringify(storageTasks));
       setTaskId(taskId + 1);
+      setTitle("");
+      setAbout("");
     }
   }
-}
+} 

@@ -1,0 +1,22 @@
+body .spec-buttons {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 30px;
+  margin-top: -5px;
+  gap: 10px;
+}
+body .spec-buttons .share-button {
+  background-image: url("../../assets/images/Share.png");
+  height: 30px;
+  width: 30px;
+}
+body .spec-buttons .info-button {
+  background-image: url("../../assets/images/letteri.png");
+  height: 30px;
+  width: 30px;
+}
+body .spec-buttons .edit-button {
+  background-image: url("../../assets/images/Edit.png");
+  height: 30px;
+  width: 30px;
+}

@@ -1,0 +1,39 @@
+.no-tasks {
+  display: flex;
+  justify-content: center;
+  font-family: Inter;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+body .task-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1F1E1B;
+  border-radius: 8px;
+  outline-color: #FF8303;
+  outline-style: outset;
+  outline-width: 2px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+body .task-block .task-block-text {
+  margin-left: 20px;
+  width: 90%;
+}
+body .task-block .task-block-text .task-block-title {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: -5px;
+  margin-top: 15px;
+}
+body .task-block .task-block-text .task-block-about {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+body .task-block .task-block-button {
+  margin-right: 20px;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+}
