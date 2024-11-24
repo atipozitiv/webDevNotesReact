@@ -14,13 +14,15 @@ export default function EditPopup({currentTask, hide, tasks, setPressedTask}) {
           <div className='popup-edit-buttons'>
             <button onClick={hide}>Cancel</button>
             <button onClick={(event) => {
-              event.stopPropagation(); 
-              tasks.set(currentTask.id, {id: currentTask.id, title: title, about: about});
-              const storageTasks = [];
-              tasks.forEach(element => {storageTasks.push(element)});
-              localStorage.setItem('tasks', JSON.stringify(storageTasks));
-              hide();
-              setPressedTask();
+              if ((title != "") && (about != "")) {
+                event.stopPropagation(); 
+                tasks.set(currentTask.id, {id: currentTask.id, title: title, about: about});
+                const storageTasks = [];
+                tasks.forEach(element => {storageTasks.push(element)});
+                localStorage.setItem('tasks', JSON.stringify(storageTasks));
+                hide();
+                setPressedTask();
+              }
             }}>Save</button>
           </div>
         </div>

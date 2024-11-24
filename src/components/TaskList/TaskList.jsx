@@ -12,7 +12,7 @@ export default function TaskList({taskId, tasks, setTaskId}) {
     deleteTask();
   }
   const deleteDeny = () => setDeletePopup({isVisible: false, isConfirm: false})
-
+  const [draggedTask, setDraggedTask] = useState();
 
   if (taskId == 0) {
     return (
@@ -28,7 +28,8 @@ export default function TaskList({taskId, tasks, setTaskId}) {
       <>
         {tasksArr.map((task, index) => {
           return (
-            <div key={index}>
+            <div key={index} draggable={true} onDragStart={(e) => dragStartHandler(e, task)} onDragLeave={(e) => dragEndHandler(e)} 
+            onDragEnd={(e) => dragEndHandler(e)} onDragOver={(e) => dragOverHandler(e)} onDrop={(e) => dropHandler(e, task)}>
               <div className='task-block' key={index} onClick={() => pressedTask == index ? setPressedTask() : setPressedTask(index)}>
                 <div className='task-block-text'>
                   <p className='task-block-title'>{task[1].title}</p>
@@ -62,5 +63,25 @@ export default function TaskList({taskId, tasks, setTaskId}) {
     const storageTasks = [];
     tasks.forEach(element => {storageTasks.push(element)});
     localStorage.setItem('tasks', JSON.stringify(storageTasks))
+  }
+
+  function dragStartHandler(e, task) {
+    setDraggedTask(task);
+  }
+  function dragEndHandler(e) {
+    e.target.className == "task-block-text" ? e.target.style.background = "#1F1E1B" : null;
+  }
+  function dragOverHandler(e) {
+    e.preventDefault();
+    e.target.className == "task-block-text" ? e.target.style.background = "#201f1c" : null;
+  }
+  function dropHandler(e, task) {
+    e.preventDefault();
+    tasks.set(task[1].id, {id: task[1].id, title: draggedTask[1].title, about: draggedTask[1].about});
+    tasks.set(draggedTask[1].id, {id: draggedTask[1].id, title: task[1].title, about: task[1].about});
+    const storageTasks = [];
+    tasks.forEach(element => {storageTasks.push(element)});
+    localStorage.setItem('tasks', JSON.stringify(storageTasks));
+    setDraggedTask();
   }
 }
