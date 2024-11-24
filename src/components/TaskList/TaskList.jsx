@@ -67,14 +67,18 @@ export default function TaskList({taskId, tasks, setTaskId}) {
 
   function dragStartHandler(e, task) {
     setDraggedTask(task);
+    setPressedTask();
   }
+
   function dragEndHandler(e) {
     e.target.className == "task-block-text" ? e.target.style.background = "#1F1E1B" : null;
   }
+
   function dragOverHandler(e) {
     e.preventDefault();
     e.target.className == "task-block-text" ? e.target.style.background = "#201f1c" : null;
   }
+  
   function dropHandler(e, task) {
     e.preventDefault();
     tasks.set(task[1].id, {id: task[1].id, title: draggedTask[1].title, about: draggedTask[1].about});
