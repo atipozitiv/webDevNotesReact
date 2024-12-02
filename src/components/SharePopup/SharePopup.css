@@ -13,7 +13,7 @@ body .popup-background .share-popup {
   width: 90%;
   height: 80px;
   margin-left: 5%;
-  background-color: #1B1A17;
+  background-color: #1b1a17;
   position: absolute;
   bottom: 0;
   border-top-left-radius: 8px;
@@ -22,7 +22,7 @@ body .popup-background .share-popup {
 body .popup-background .share-popup button {
   height: 50px;
   width: 50px;
-  background-color: #23221F;
+  background-color: #23221f;
   border-style: none;
   border-radius: 50%;
 }
@@ -40,4 +40,4 @@ body .popup-background .share-popup .watsapp-button {
 }
 body .popup-background .share-popup .facebook-button {
   background-image: url("../../assets/images/facebook.png");
-}
+}/*# sourceMappingURL=SharePopup.css.map */

@@ -1,0 +1,38 @@
+body {
+  .popup-background {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .delete-popup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #1b1a17;
+      height: 140px;
+      margin-top: 20%;
+      margin-left: 25%;
+      width: 50%;
+      border-top: 4px outset #a35709;
+      font-size: 20px;
+      padding-top: 40px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      .delete-popup-button-yes {
+        margin-top: 30px;
+        color: white;
+        font-size: 10px;
+        height: 30px;
+        margin-right: 6px;
+      }
+      .delete-popup-button-no {
+        margin-top: 30px;
+        color: white;
+        font-size: 10px;
+        height: 30px;
+      }
+    }
+  }
+}

@@ -10,12 +10,12 @@ body .popup-background .delete-popup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1B1A17;
+  background-color: #1b1a17;
   height: 140px;
   margin-top: 20%;
   margin-left: 25%;
   width: 50%;
-  border-top: 4px outset #A35709;
+  border-top: 4px outset #a35709;
   font-size: 20px;
   padding-top: 40px;
   border-bottom-left-radius: 10px;
@@ -33,4 +33,4 @@ body .popup-background .delete-popup .delete-popup-button-no {
   color: white;
   font-size: 10px;
   height: 30px;
-}
+}/*# sourceMappingURL=DeletePopup.css.map */

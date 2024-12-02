@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(assets/fonts/Roboto.ttf);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(assets/fonts/Inter.ttf);
+}
+
+body {
+  background-color: #1b1a17;
+  display: flex;
+  width: 99%;
+  height: 100%;
+
+  .root {
+    display: flex;
+    background-color: #1b1a17;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  hr {
+    width: 50px;
+    height: 3px;
+    background-color: #ff8303;
+    border-color: #ff8303;
+    border-radius: 4px;
+  }
+
+  input {
+    border-color: #ff8303;
+    background-color: #1f1e1b;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 30px;
+    font-family: Roboto;
+    padding-left: 10px;
+    color: rgb(192, 192, 192);
+  }
+
+  button {
+    border-color: #ff8303;
+    border-radius: 4px;
+    background-color: #1b1a17;
+    color: #ff8303;
+    width: 70px;
+    font-size: 40px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  p {
+    color: #f0e3ca;
+    font-family: Roboto;
+  }
+}

@@ -3,15 +3,16 @@
   justify-content: center;
   font-family: Inter;
   font-size: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 body .task-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1F1E1B;
+  background-color: #1f1e1b;
   border-radius: 8px;
-  outline-color: #FF8303;
+  outline-color: #ff8303;
   outline-style: outset;
   outline-width: 2px;
   margin-bottom: 20px;
@@ -36,4 +37,4 @@ body .task-block .task-block-button {
   height: 30px;
   width: 30px;
   font-size: 20px;
-}
+}/*# sourceMappingURL=TaskList.css.map */

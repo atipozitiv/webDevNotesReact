@@ -1,17 +1,35 @@
-import './SharePopup.css'
+import { useState } from "react";
+import "./SharePopup.css";
 
-export default function SharePopup({currentTask, hide}) {
+export default function SharePopup({ currentTask, hide }) {
+  const [buttonsClasses, setButtonsClasses] = useState([
+    "to-copy-button",
+    "vk-button",
+    "telegram-button",
+    "watsapp-button",
+    "facebook-button",
+  ]);
+
   return (
     <>
-      <div className='popup-background' onClick={hide}>
-        <div className='share-popup'>
-          <button className='to-copy-button' onClick={(event) => {event.stopPropagation(); navigator.clipboard.writeText(currentTask.title + "\n\n" + currentTask.about)}}></button>
-          <button className='vk-button' onClick={(event) => {event.stopPropagation(); navigator.clipboard.writeText(currentTask.title + "\n\n" + currentTask.about)}}></button>
-          <button className='telegram-button' onClick={(event) => {event.stopPropagation(); navigator.clipboard.writeText(currentTask.title + "\n\n" + currentTask.about)}}></button>
-          <button className='watsapp-button' onClick={(event) => {event.stopPropagation(); navigator.clipboard.writeText(currentTask.title + "\n\n" + currentTask.about)}}></button>
-          <button className='facebook-button' onClick={(event) => {event.stopPropagation(); navigator.clipboard.writeText(currentTask.title + "\n\n" + currentTask.about)}}></button>
+      <div className="popup-background" onClick={hide}>
+        <div className="share-popup">
+          {buttonsClasses.map((buttonsClass, index) => {
+            return (
+              <button
+                key={index}
+                className={buttonsClass}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  navigator.clipboard.writeText(
+                    currentTask.title + "\n\n" + currentTask.about
+                  );
+                }}
+              ></button>
+            );
+          })}
         </div>
       </div>
     </>
-  )
+  );
 }

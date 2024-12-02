@@ -1,0 +1,60 @@
+body {
+  .popup-background {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .edit-popup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #1b1a17;
+      position: absolute;
+      bottom: 0;
+      width: 90%;
+      height: 70%;
+      margin-left: 5%;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      button {
+        font-size: 16px;
+        color: #f0e3ca;
+        font-weight: 400;
+      }
+      .title-edit {
+        background-color: #242320;
+        width: 90%;
+        height: 5%;
+        margin-top: 26px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #f0e3ca;
+      }
+      .about-edit {
+        background-color: #242320;
+        width: 90%;
+        height: 90%;
+        border-radius: 4px;
+        border-color: #ff8303;
+        border-width: 2px;
+        color: #f0e3ca;
+        padding-left: 14px;
+        padding-top: 10px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        resize: none;
+      }
+      .popup-edit-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        margin-top: 14px;
+        height: 40px;
+      }
+    }
+  }
+}
