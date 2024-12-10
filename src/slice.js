@@ -1,19 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const counterSlice = createSlice({
-  name: 'counter',
+const tasksSlice = createSlice({
+  name: 'tasks',
   initialState: {
-    count: 0
+    taskId: 0,
+    currentTask: 0,
   },
   reducers: {
-    increment: (state, action) => {
-      state.count += action.payload;
+    reduceTaskId: (state, action) => {
+      state.taskId = action.payload;
     },
-    decrement: (state, action) => {
-      state.count -= action.payload;
+    reduceCurrentTask: (state, action) => {
+      state.currentTask = action.payload;
     }
   }
 })
 
-export const { increment, decrement} = counterSlice.actions;
-export default counterSlice.reducer;
+export const { reduceTaskId, reduceCurrentTask} = tasksSlice.actions;
+export default tasksSlice.reducer;

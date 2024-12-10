@@ -2,8 +2,12 @@ import { useState } from "react";
 import "./TaskList.css";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import SpecButtons from "../SpecButtons/SpecButtons";
+import { useDispatch, useSelector} from "react-redux";
+import { reduceTaskId, reduceCurrentTask} from "../../slice";
 
-export default function TaskList({ taskId, tasks, setTaskId }) {
+export default function TaskList({ tasks }) {
+  const taskId = useSelector(state => state.tasks.taskId);
+  const dispatch = useDispatch();
   const [taskIndex, setTaskIndex] = useState();
   const [pressedTask, setPressedTask] = useState();
   const [deletePopup, setDeletePopup] = useState({
@@ -30,7 +34,7 @@ export default function TaskList({ taskId, tasks, setTaskId }) {
       tasks.delete(turn + 1);
       turn += 1;
     }
-    setTaskId(taskId - 1);
+    dispatch(reduceTaskId(taskId - 1));
     const storageTasks = [];
     tasks.forEach((element) => {
       storageTasks.push(element);
@@ -86,6 +90,7 @@ export default function TaskList({ taskId, tasks, setTaskId }) {
     );
   } else {
     const tasksArr = Array.from(tasks);
+    dispatch(reduceCurrentTask(tasksArr[1]));
     return (
       <>
         {tasksArr.map((task, index) => {

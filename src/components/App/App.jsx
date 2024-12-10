@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import TaskList from "../TaskList/TaskList";
+import { useDispatch} from "react-redux";
+import { reduceTaskId} from "../../slice";
 
 export default function App() {
+  const dispatch = useDispatch();
   const [taskId, setTaskId] = useState(() => {
     const storeLength = localStorage.getItem("tasks");
+    storeLength ? dispatch(reduceTaskId(JSON.parse(storeLength).length)) : dispatch(reduceTaskId(0));
     return storeLength ? JSON.parse(storeLength).length : 0;
   });
   const [title, setTitle] = useState("");
@@ -36,6 +40,7 @@ export default function App() {
       });
       localStorage.setItem("tasks", JSON.stringify(storageTasks));
       setTaskId(taskId + 1);
+      dispatch(reduceTaskId(taskId));
       setTitle("");
       setAbout("");
     }
@@ -58,7 +63,7 @@ export default function App() {
         </div>
         <button onClick={createTaskButton}>+</button>
       </div>
-      <TaskList taskId={taskId} tasks={tasks} setTaskId={setTaskId}></TaskList>
+      <TaskList tasks={tasks}></TaskList>
     </>
   );
 }
